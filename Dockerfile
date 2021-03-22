@@ -4,8 +4,8 @@ FROM maven:3.6.1-jdk-8-alpine AS MAVEN_BUILD
 COPY ./ ./
  
 # package our application code
-RUN mvn clean install
+RUN mvn clean package
 
 From openjdk:8
-copy ./target/employee-producer-0.0.1-SNAPSHOT.jar employee-producer-0.0.1-SNAPSHOT.jar
+COPY --from=MAVEN_BUILD ./target/employee-producer-0.0.1-SNAPSHOT.jar employee-producer-0.0.1-SNAPSHOT.jar
 CMD ["java","-jar","employee-producer-0.0.1-SNAPSHOT.jar"]
