@@ -3,8 +3,11 @@ package com.javainuse.controllers;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.javainuse.model.Employee;
+import com.javainuse.model.Num;
 
 @RestController
 public class TestController {
@@ -19,6 +22,17 @@ public class TestController {
 		emp.setSalary(3000);
 
 		return emp;
+	}
+
+	@RequestMapping(value = "/math", method = RequestMethod.POST)
+	 @ResponseBody
+		public Num add(@RequestBody Num number) {
+
+	Num numA=new Num();
+	numA.setNum1(number.getNum1()+number.getNum2());
+	numA.setNum2(number.getNum1()-number.getNum2());
+
+			return numA;
 	}
 
 }
