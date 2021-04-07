@@ -7,5 +7,5 @@
 #RUN mvn clean package
 
 From openjdk:8
-COPY --from=MAVEN_BUILD ./target/employee-producer-0.0.1-SNAPSHOT.jar employee-producer-0.0.1-SNAPSHOT.jar
+copy ./target/employee-producer-0.0.1-SNAPSHOT.jar employee-producer-0.0.1-SNAPSHOT.jar
 CMD ["java","-jar","employee-producer-0.0.1-SNAPSHOT.jar"]
