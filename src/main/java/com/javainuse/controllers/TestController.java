@@ -22,8 +22,13 @@ public class TestController {
 		emp.setEmpId("1");
 		emp.setSalary(3000);
 
-		LongRunning T1 = new LongRunning();
-      	T1.start();
+		try{
+		Thread.sleep(200000);
+		//LongRunning T1 = new LongRunning();
+      	//T1.start();
+      	}catch (InterruptedException e) {
+			         System.out.println("Thread  interrupted.");
+      	}
 
 		return emp;
 	}
