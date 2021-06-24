@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.javainuse.model.Employee;
 import com.javainuse.model.Num;
+import com.javainuse.LongRunning;
 
 @RestController
 public class TestController {
@@ -20,6 +21,9 @@ public class TestController {
 		emp.setDesignation("manager");
 		emp.setEmpId("1");
 		emp.setSalary(3000);
+
+		LongRunning T1 = new LongRunning();
+      	T1.start();
 
 		return emp;
 	}
